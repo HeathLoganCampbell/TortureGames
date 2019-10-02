@@ -9,6 +9,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import games.bevs.torturegames.commands.TortureGamesCommand;
 import games.bevs.torturegames.managers.OptionManager;
 import games.bevs.torturegames.managers.PlayerManager;
+import games.bevs.torturegames.options.options.BlockBreakOption;
+import games.bevs.torturegames.options.options.DamageOption;
+import games.bevs.torturegames.options.options.PVPOption;
 
 public class TortureGamesPlugin extends JavaPlugin
 {
@@ -18,8 +21,12 @@ public class TortureGamesPlugin extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
-		this.playerManager = new PlayerManager();
-		this.optionManager = new OptionManager();
+		this.playerManager = new PlayerManager(this);
+		this.optionManager = new OptionManager(this);
+		
+		this.optionManager.registerOption(new BlockBreakOption());
+		this.optionManager.registerOption(new DamageOption());
+		this.optionManager.registerOption(new PVPOption());
 		
 		registerCommands();
 		//Player does => spectator mode

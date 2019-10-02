@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 
@@ -12,7 +13,7 @@ import games.bevs.torturegames.managers.PlayerManager;
 import lombok.Getter;
 import lombok.NonNull;
 
-public class DeathListener
+public class DeathListener implements Listener
 {
 	@Getter @NonNull
 	private PlayerManager playerManager;

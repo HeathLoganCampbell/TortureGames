@@ -11,13 +11,28 @@ import org.bukkit.WorldBorder;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import games.bevs.minecraftbut.commons.utils.CC;
 import games.bevs.minecraftbut.commons.utils.MathUtils;
 import games.bevs.torturegames.commoms.utils.PlayerUtils;
+import games.bevs.torturegames.listeners.DeathListener;
+import games.bevs.torturegames.listeners.PlayerListener;
+import lombok.NonNull;
 
 public class PlayerManager
 {
+	@NonNull
+	private JavaPlugin plugin;
+	
+	public PlayerManager(JavaPlugin plugin)
+	{
+		this.plugin = plugin;
+		
+		Bukkit.getPluginManager().registerEvents(new DeathListener(), this.plugin);
+		Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this.plugin);
+	}
+	
 	public void respawn(Player player)
 	{
 		player.setGameMode(GameMode.SURVIVAL);

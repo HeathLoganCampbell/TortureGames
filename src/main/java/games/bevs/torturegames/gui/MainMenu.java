@@ -118,7 +118,6 @@ public class MainMenu extends Menu
 				if(playersTeleported % 10 == 0)
 					delayedTicks += 2;
 			}
-			
 		});
 	}
 	
