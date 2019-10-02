@@ -5,9 +5,11 @@ import java.util.Arrays;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import games.bevs.torturegames.gui.MainMenu;
 import games.bevs.torturegames.managers.OptionManager;
+import games.bevs.torturegames.managers.PlayerManager;
 
 /**
  * 
@@ -19,12 +21,12 @@ public class TortureGamesCommand extends Command
 {
 	private MainMenu mainMenu;
 	
-	public TortureGamesCommand(OptionManager optionManager) {
+	public TortureGamesCommand(JavaPlugin plugin, OptionManager optionManager, PlayerManager playerManager) {
 		super("TortureGames", 
 			"Pops up with the gui to edit the set up",
 			"/TortureGames", Arrays.asList("tg"));
 		
-		this.mainMenu = new MainMenu(optionManager);
+		this.mainMenu = new MainMenu(plugin, optionManager, playerManager);
 	}
 	
 	@Override

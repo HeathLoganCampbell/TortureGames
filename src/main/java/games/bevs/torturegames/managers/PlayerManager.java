@@ -5,10 +5,15 @@ import java.util.stream.Collectors;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.WorldBorder;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 import games.bevs.minecraftbut.commons.utils.CC;
+import games.bevs.minecraftbut.commons.utils.MathUtils;
 import games.bevs.torturegames.commoms.utils.PlayerUtils;
 
 public class PlayerManager
@@ -23,6 +28,23 @@ public class PlayerManager
 		player.setFallDistance(0);
 		player.setFireTicks(0);
 		//Spawn player
+		this.spawn(player);
+	}
+	
+	public void spawn(Player player)
+	{
+		World world = player.getWorld();
+		WorldBorder border = world.getWorldBorder();
+		Location borderCenter = border.getCenter();
+		double size = 32;
+		
+		int x = MathUtils.getRandom().nextInt((int) size) - (int) ( size / 2);
+		int z = MathUtils.getRandom().nextInt((int) size) - (int) ( size / 2);
+		
+		Block heightYBlock = world.getHighestBlockAt(borderCenter.getBlockX() + x, borderCenter.getBlockZ()+ z);
+		Location location = heightYBlock.getLocation().add(0, 3.5, 0);
+		
+		player.teleport(location);
 	}
 	
 	public void die(Player player, Player killer, DamageCause damageCause)

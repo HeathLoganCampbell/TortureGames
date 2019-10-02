@@ -8,14 +8,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import games.bevs.torturegames.commands.TortureGamesCommand;
 import games.bevs.torturegames.managers.OptionManager;
+import games.bevs.torturegames.managers.PlayerManager;
 
 public class TortureGamesPlugin extends JavaPlugin
 {
 	private OptionManager optionManager;
+	private PlayerManager playerManager;
 	
 	@Override
 	public void onEnable()
 	{
+		this.playerManager = new PlayerManager();
 		this.optionManager = new OptionManager();
 		
 		registerCommands();
@@ -71,7 +74,7 @@ public class TortureGamesPlugin extends JavaPlugin
 			return;
 		}
 		 
-		TortureGamesCommand tortureGamesCMD = new TortureGamesCommand(this.optionManager);
+		TortureGamesCommand tortureGamesCMD = new TortureGamesCommand(this, this.optionManager, this.playerManager);
 		commandMap.register(tortureGamesCMD.getName(), tortureGamesCMD);
 	}
 }
