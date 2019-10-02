@@ -132,12 +132,14 @@ public class MainMenu extends Menu
 				//disable it with click
 				option.disable();
 				this.drawIcon(slot, option);
+				player.sendMessage(CC.gray + option.getDisplayName() + " has been disabled");
 			}
 			else
 			{
 				//enable when clicked
 				option.enable();
 				this.drawIcon(slot, option);
+				player.sendMessage(CC.gray + option.getDisplayName() + " has been enabled");
 			}
 		});
 	}
