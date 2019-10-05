@@ -38,10 +38,10 @@ public class BorderMenu extends Menu
 		if(Math.abs(amount) >= 50) id = 2;
 		if(Math.abs(amount) >= 150) id = 3;
 		
-		this.setIcon(slot, new ItemStackBuilder(Material.IRON_BARDING).amount(id).displayName(CC.b + action + " border " + amount + " blocks"), (player) -> {
+		this.setIcon(slot, new ItemStackBuilder(Material.IRON_FENCE).amount(id).displayName(CC.b + action + " border " + amount + " blocks"), (player) -> {
 			World world = player.getWorld();
 			WorldBorder border = world.getWorldBorder();
-			border.setSize(border.getSize() + amount);
+			border.setSize(border.getSize() + amount, amount / 4);
 		});
 	}
 }

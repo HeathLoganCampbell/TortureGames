@@ -67,7 +67,7 @@ public class MainMenu extends Menu
 		
 		
 		//Border
-		this.setIcon(19, new ItemStackBuilder(Material.IRON_BARDING).displayName(CC.b + "Border Menu"), (player) -> {
+		this.setIcon(19, new ItemStackBuilder(Material.IRON_FENCE).displayName(CC.b + "Border Menu"), (player) -> {
 			this.borderMenu.open(player);
 		});
 		

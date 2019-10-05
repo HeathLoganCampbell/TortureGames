@@ -3,6 +3,8 @@ package games.bevs.torturegames;
 import java.lang.reflect.Field;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
+import org.bukkit.WorldBorder;
 import org.bukkit.command.CommandMap;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -42,6 +44,13 @@ public class TortureGamesPlugin extends JavaPlugin
 			//potion effect all players
 			//slap all player into air
 			//burn all
+		
+		
+		Bukkit.getScheduler().scheduleSyncDelayedTask(this, () -> {
+			World world = Bukkit.getWorlds().get(0);
+			WorldBorder border = world.getWorldBorder();
+			border.setSize(100);
+		}, 80L);
 	}
 	
 	@Override
