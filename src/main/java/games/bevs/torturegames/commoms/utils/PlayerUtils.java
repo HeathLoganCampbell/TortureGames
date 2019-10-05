@@ -15,7 +15,8 @@ public class PlayerUtils
 				player.getWorld().dropItemNaturally(player.getLocation(), item);
 		
 		for(ItemStack item : inv.getArmorContents())
-			player.getWorld().dropItemNaturally(player.getLocation(), item);
+			if(item != null && item.getType() != Material.AIR)
+				player.getWorld().dropItemNaturally(player.getLocation(), item);
 		
 		inv.clear();
 		inv.setArmorContents(new ItemStack[4]);
