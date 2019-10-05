@@ -51,5 +51,6 @@ public class DeathListener implements Listener
 		}
 		
 		this.getPlayerManager().die(player, killer, e.getCause());
+		e.setCancelled(true);
 	}
 }
