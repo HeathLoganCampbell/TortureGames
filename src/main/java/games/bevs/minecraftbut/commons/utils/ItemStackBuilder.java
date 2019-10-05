@@ -78,7 +78,9 @@ public class ItemStackBuilder {
 	public ItemStackBuilder addLore(String lore)
 	{
 		ItemMeta itemMeta = build().getItemMeta();
-		List<String> newLore = new ArrayList<String>(itemMeta.getLore());
+		List<String> newLore = new ArrayList<String>();
+		if(itemMeta.getLore() != null)
+			newLore = new ArrayList<String>(itemMeta.getLore());
 		newLore.add(lore);
 		itemMeta.setLore(newLore);
 		build().setItemMeta(itemMeta);
