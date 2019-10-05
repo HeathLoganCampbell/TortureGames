@@ -10,7 +10,8 @@ public class PlayerUtils
 	{
 		PlayerInventory inv = player.getInventory();
 		for(ItemStack item : inv.getContents())
-			player.getWorld().dropItemNaturally(player.getLocation(), item);
+			if(item != null)
+				player.getWorld().dropItemNaturally(player.getLocation(), item);
 		
 		for(ItemStack item : inv.getArmorContents())
 			player.getWorld().dropItemNaturally(player.getLocation(), item);

@@ -26,11 +26,11 @@ public class Option implements Listener
 	
 	public void enable()
 	{
-		
+		this.enabled = true;
 	}
 	
 	public void disable()
 	{
-		
+		this.enabled = false;
 	}
 }

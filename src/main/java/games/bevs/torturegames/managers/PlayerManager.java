@@ -29,7 +29,7 @@ public class PlayerManager
 	{
 		this.plugin = plugin;
 		
-		Bukkit.getPluginManager().registerEvents(new DeathListener(), this.plugin);
+		Bukkit.getPluginManager().registerEvents(new DeathListener(this), this.plugin);
 		Bukkit.getPluginManager().registerEvents(new PlayerListener(this), this.plugin);
 	}
 	

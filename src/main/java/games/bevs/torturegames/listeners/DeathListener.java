@@ -12,7 +12,9 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import games.bevs.torturegames.managers.PlayerManager;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class DeathListener implements Listener
 {
 	@Getter @NonNull
